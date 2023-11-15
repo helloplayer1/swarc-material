@@ -42,18 +42,22 @@ Main features of the app are:
 
 ## Quality Goals
 
-| Priority | Quality | Motivation |
-|----------|---------|------------|
-|1|Security|Protect the private data and rights of our users to gather their trust.|
-|2|Reliability|Allows for rapid growth of our app. The platform must be able to handle hundreds of thousands of users.|
-|3|Usability|Make sure the user loves using our app.|
+| Priority | Quality     | Motivation                                                                                              |
+| -------- | ----------- | ------------------------------------------------------------------------------------------------------- |
+| 1        | Security    | Protect the private data and rights of our users to gather their trust.                                 |
+| 2        | Reliability | Allows for rapid growth of our app. The platform must be able to handle hundreds of thousands of users. |
+| 3        | Usability   | Make sure the user loves using our app.                                                                 |
 
 ## Stakeholders
 
-| Role/Name   | Contact        | Expectations       |
-|-------------|----------------|--------------------|
-| *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
-| *\<Role-2>* | *\<Contact-2>* | *\<Expectation-2>* |
+| Role/Name               | Expectations                                                   |
+| ----------------------- | -------------------------------------------------------------- |
+| Investor 1              | Return of Investment (ROI) for his share on the company        |
+| Investor 2              | Long term investment and growth                                |
+| Team Leader             | Hassle-free executino of the project                           |
+| Lead Marketing Engineer | Popularize and grow the app                                    |
+| Lead System Architect   | Build and maintain a scalable and secure hardware architecture |
+| Lead Software Architect | Implement the software itself                                  |
 
 <div style="page-break-after: always;"></div>
 
@@ -219,49 +223,7 @@ and input/output.
 
 # Solution Strategy
 
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-A short summary and explanation of the fundamental decisions and
-solution strategies, that shape system architecture. It includes
-
--   technology decisions
-
--   decisions about the top-level decomposition of the system, e.g.
-    usage of an architectural pattern or design pattern
-
--   decisions on how to achieve key quality goals
-
--   relevant organizational decisions, e.g. selecting a development
-    process or delegating certain tasks to third parties.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-These decisions form the cornerstones for your architecture. They are
-the foundation for many other detailed decisions or implementation
-rules.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Keep the explanations of such key decisions short.
-
-Motivate what was decided and why it was decided that way, based upon
-problem statement, quality goals and key constraints. Refer to details
-in the following sections.
-
-See [Solution Strategy](https://docs.arc42.org/section-4/) in the arc42
-documentation.
+The app will be developed as a multiplatform app with a shared code base using the Flutter framework. While the flutter app represents the client side of the app, the backend and server will be implemented as a Node.JS application.
 
 <div style="page-break-after: always;"></div>
 
@@ -364,9 +326,9 @@ If you use tabular form you will only describe your black boxes with
 name and responsibility according to the following schema:
 
 | **Name**         | **Responsibility** |
-|------------------|--------------------|
-| *\<black box 1>* |  *\<Text>*         |
-| *\<black box 2>* |  *\<Text>*         |
+| ---------------- | ------------------ |
+| *\<black box 1>* | *\<Text>*          |
+| *\<black box 2>* | *\<Text>*          |
 
 If you use a list of black box descriptions then you fill in a separate
 black box template for every important building block . Its headline is
@@ -760,53 +722,11 @@ documentation.
 
 # Architecture Decisions
 
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-Important, expensive, large scale or risky architecture decisions
-including rationales. With "decisions" we mean selecting one alternative
-based on given criteria.
-
-Please use your judgement to decide whether an architectural decision
-should be documented here in this central section or whether you better
-document it locally (e.g. within the white box template of one building
-block).
-
-Avoid redundancy. Refer to section 4, where you already captured the
-most important decisions of your architecture.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Stakeholders of your system should be able to comprehend and retrace
-your decisions.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Various options:
-
--   ADR ([Documenting Architecture
-    Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions))
-    for every important decision
-
--   List or table, ordered by importance and consequences or:
-
--   more detailed in form of separate sections per decision
-
-See [Architecture Decisions](https://docs.arc42.org/section-9/) in the
-arc42 documentation. There you will find links and examples about ADR.
-
-<div style="page-break-after: always;"></div>
+| Problem                      | Considered Alternatives                    | Decision                                     |
+| ---------------------------- | ------------------------------------------ | -------------------------------------------- |
+| Multiplatform App            | Two Codebases, Crossplatform Development   | crossplatform development using Flutter      |
+| Scalable platform            | Vertically scalable, horizontally scalable | Horizontally scalable platform using Node.js |
+| Basic architectural approach | Monolithic, Microservices, Client/Server   | Client/Server                                |
 
 # Quality Requirements
 
@@ -925,42 +845,12 @@ Tabular or free form text.
 
 # Risks and Technical Debts
 
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-A list of identified technical risks or technical debts, ordered by
-priority
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-“Risk management is project management for grown-ups” (Tim Lister,
-Atlantic Systems Guild.)
-
-This should be your motto for systematic detection and evaluation of
-risks and technical debts in the architecture, which will be needed by
-management stakeholders (e.g. project managers, product owners) as part
-of the overall risk analysis and measurement planning.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-List of risks and/or technical debts, probably including suggested
-measures to minimize, mitigate or avoid risks or reduce technical debts.
-
-See [Risks and Technical Debt](https://docs.arc42.org/section-11/) in
-the arc42 documentation.
-
-<div style="page-break-after: always;"></div>
+* Image editing might be a complex topic
+  * None of us is experienced with editing of images, so we might need to do some trainings on this topic or even consult a professional to get this right. Another option would be to implement this feature later on.
+* Content filtering
+  * We need to think about how we can make sure that no nsfw or even illegal content is posted and can be removed immediately. One option would be to use AI Image detection to filter images with a high risk.
+* Disk space
+  * As everyone can upload images on our platform, we might need to figure out limits for the space people can use.
 
 # Glossary
 
@@ -996,6 +886,6 @@ See [Glossary](https://docs.arc42.org/section-12/) in the arc42
 documentation.
 
 | Term        | Definition        |
-|-------------|-------------------|
+| ----------- | ----------------- |
 | *\<Term-1>* | *\<definition-1>* |
 | *\<Term-2>* | *\<definition-2>* |
