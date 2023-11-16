@@ -1,0 +1,11 @@
+@startuml
+
+frame "Business Context" {
+
+actor user
+
+component "image sharing"
+
+}
+
+@enduml

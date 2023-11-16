@@ -65,8 +65,11 @@ Main features of the app are:
 
 |Constraints|Backgrounds and/or motivation|
 |-----------|-----------------------------|
-|ease of use| We want our app to be as accessible as possible|
-|
+|Ease of use| We want our app to be as accessible as possible|
+|Advanced editing posibilities|We want our users to stay within the app|
+|Crossplatform Development|We dont have the resources to maintain two codebases|
+|Backend Implementation in Node.Js|While the Backend is implemented in JavaScript, the API will be designed based on the REST principles|
+|OS Independent development|The development should work regardless of the desktop OS, as our team uses multiple different devices|
 
 # System Scope and Context
 
