@@ -6,6 +6,9 @@ actor user
 
 component "image sharing"
 
+
 }
+
+user ..> image sharing
 
 @enduml
