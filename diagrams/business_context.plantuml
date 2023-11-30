@@ -2,9 +2,31 @@
 
 frame "Business Context" {
 
-actor user
+actor User
 
-component "image sharing"
+actor Community
+
+actor Government
+
+component "image sharing" as app
+
+rectangle Pixlr
+
+rectangle "AI Image Classification" as AI
+
+rectangle "Social Media" as sm
+
+User -- app : images, content, interactions
+
+app -- Pixlr : image modifications
+
+app -- AI : image uploads
+
+app -- Government : law enforcment
+
+app -- sm : images (sharing) 
+
+app -- Community : interactions, reactions
 
 }
 
