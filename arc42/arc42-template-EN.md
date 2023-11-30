@@ -63,13 +63,13 @@ Main features of the app are:
 
 # Architecture Constraints
 
-|Constraints|Backgrounds and/or motivation|
-|-----------|-----------------------------|
-|Ease of use| We want our app to be as accessible as possible|
-|Advanced editing posibilities|We want our users to stay within the app|
-|Crossplatform Development|We dont have the resources to maintain two codebases|
-|Backend Implementation in Node.Js|While the Backend is implemented in JavaScript, the API will be designed based on the REST principles|
-|OS Independent development|The development should work regardless of the desktop OS, as our team uses multiple different devices|
+| Constraints                       | Backgrounds and/or motivation                                                                         |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Ease of use                       | We want our app to be as accessible as possible                                                       |
+| Advanced editing posibilities     | We want our users to stay within the app                                                              |
+| Crossplatform Development         | We dont have the resources to maintain two codebases                                                  |
+| Backend Implementation in Node.Js | While the Backend is implemented in JavaScript, the API will be designed based on the REST principles |
+| OS Independent development        | The development should work regardless of the desktop OS, as our team uses multiple different devices |
 
 # System Scope and Context
 
@@ -558,113 +558,56 @@ Please copy the structure from level 1 for each selected element.
 
 # Cross-cutting Concepts
 
-<div class="formalpara-title">
+## REST API
 
-**Content**
+to enable consistent communication between the client and the server, we will use a REST API. This will allow us to use the same endpoints for all platforms and also makes it easier to implement the backend. 
 
-</div>
+## Image format (PNG)
 
-This section describes overall, principal regulations and solution ideas
-that are relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks. They can
-include many different topics, such as
+To simplify the handling of images in general, all images will be converted to the PNG format. This will allow us to use the same image format for all images and also makes it easier to implement the image editing feature.
 
--   models, especially domain models
+## Security and Privacy
 
--   architecture or design patterns
+All data that is not public will be stored and send e2e encrypted. This includes the user data, images and all other data that is not public. This will ensure that no one can access the data without the permission of the user.
 
--   rules for using specific technology
-
--   principal, often technical decisions of an overarching (=
-    cross-cutting) nature
-
--   implementation rules
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Concepts form the basis for *conceptual integrity* (consistency,
-homogeneity) of the architecture. Thus, they are an important
-contribution to achieve inner qualities of your system.
-
-Some of these concepts cannot be assigned to individual building blocks,
-e.g. security or safety.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The form can be varied:
-
--   concept papers with any kind of structure
-
--   cross-cutting model excerpts or scenarios using notations of the
-    architecture views
-
--   sample implementations, especially for technical concepts
-
--   reference to typical usage of standard frameworks (e.g. using
-    Hibernate for object/relational mapping)
-
-<div class="formalpara-title">
-
-**Structure**
-
-</div>
-
-A potential (but not mandatory) structure for this section could be:
-
--   Domain concepts
-
--   User Experience concepts (UX)
-
--   Safety and security concepts
-
--   Architecture and design patterns
-
--   "Under-the-hood"
-
--   development concepts
-
--   operational concepts
-
-Note: it might be difficult to assign individual concepts to one
-specific topic on this list.
-
-![Possible topics for crosscutting
-concepts](images/08-Crosscutting-Concepts-Structure-EN.png)
-
-See [Concepts](https://docs.arc42.org/section-8/) in the arc42
-documentation.
-
-## *\<Concept 1>*
-
-*\<explanation>*
-
-## *\<Concept 2>*
-
-*\<explanation>*
-
-…
-
-## *\<Concept n>*
-
-*\<explanation>*
-
-<div style="page-break-after: always;"></div>
+## Common logging format
+We will use a common logging format for all layers of our application and collect them in a single logging analyzation tool. This will allow us to easily analyze the logs and find errors.
 
 # Architecture Decisions
 
-| Problem                      | Considered Alternatives                    | Decision                                     |
-| ---------------------------- | ------------------------------------------ | -------------------------------------------- |
-| Multiplatform App            | Two Codebases, Crossplatform Development   | crossplatform development using Flutter      |
-| Scalable platform            | Vertically scalable, horizontally scalable | Horizontally scalable platform using Node.js |
-| Basic architectural approach | Monolithic, Microservices, Client/Server   | Client/Server                                |
+## Multiplatform App
+Date: 23.11.2023
+### Context
+We want to have our application available on all major platforms, including Android, iOS and Web.
+### Decision
+We will use Flutter to develop our application, as it allows us to develop a single codebase for all platforms.
+### Status
+Accepted
+### Consequences
+There will be a single codebase and also one UI/UX design for all patforms.
+If we need to implement a feature that is not supported by Flutter, we will need to implement it natively for each platform.
+
+## Scalable platform
+Date: 23.11.2023
+### Context
+We want our application to be able to handle a large amount of users.
+### Decision
+We will use a horizontally scalable platform using Node.js.
+### Status
+Accepted
+### Consequences
+We still need to keep the scalability of the whole application in mind. The application must support multiple containers to be able to scale horizontally.
+
+## Basic architectural approach
+Date: 23.11.2023
+### Context
+We need to decide on a basic architectural approach for our application.
+### Decision
+We will use a client/server architecture.
+### Status
+Accepted
+### Consequences
+We need to make sure that the communication between the client and the server is secure and that the server is able to handle a large amount of requests (see scalable platform).
 
 # Quality Requirements
 

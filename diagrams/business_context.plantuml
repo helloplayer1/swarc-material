@@ -28,6 +28,9 @@ app -- sm : images (sharing)
 
 app -- Community : interactions, reactions
 
+
 }
+
+user ..> image sharing
 
 @enduml
