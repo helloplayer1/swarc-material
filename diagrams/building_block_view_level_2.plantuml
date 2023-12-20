@@ -1,0 +1,14 @@
+@startuml
+
+package "Posts" {
+  [PostController]
+  [PostService]
+  [PostRepository]
+}
+
+[Ui Client] --> [PostController]
+[PostController] --> [PostService]
+[PostService] --> [PostRepository]
+[PostService] --> [File Storage]
+
+@enduml
