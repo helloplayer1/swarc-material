@@ -31,6 +31,6 @@ app -- Community : interactions, reactions
 
 }
 
-user ..> image sharing
+user ..> app
 
 @enduml
