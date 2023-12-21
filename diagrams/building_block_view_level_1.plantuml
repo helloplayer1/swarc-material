@@ -1,0 +1,30 @@
+@startuml
+
+actor User
+actor Admin
+
+component "Image Sharing App" {
+  [UI Client]
+  [Posts]
+  [User Management]
+  [File Storage]
+  [Third-party Integration]
+  [Authentication]
+  [Search]
+}
+Admin --> [UI Client]
+User --> [UI Client]
+[UI Client] --> [Posts]
+[UI Client] --> [Search]
+[Search] --> [Posts]
+[Search] --> [User Management]
+[UI Client] --> [User Management]
+[Posts] --> [Third-party Integration]
+[Posts] --> [File Storage]
+[User Management] --> [Authentication]
+
+cloud Pixrl
+
+[Third-party Integration] --> Pixrl
+
+@enduml
