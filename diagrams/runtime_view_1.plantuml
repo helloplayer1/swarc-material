@@ -1,0 +1,7 @@
+@startuml
+User -> App: Authentication Request
+User <-- App: Authentication Response
+
+User -> App: 
+
+@enduml
