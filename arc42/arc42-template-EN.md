@@ -114,7 +114,7 @@ documentation.
 
 ## Business Context
 
-![diagram](../diagrams/business_context.png)
+![diagram](../diagrams/business_context.svg)
 
 Our system interacts with Pixlr to support advanced image editing use cases and also allows for sharing content on other social media platforms. To ensure compliance with legislation and also our own rules for allowed content, we use an external AI service to analize image uploads and classify them. Actors that interact with our system are the user and other users (community) as well as the government.
 
@@ -167,8 +167,8 @@ The app will be developed as a multiplatform app with a shared code base using t
 
 # Building Block View
 
-![Level 1](../diagrams/building_block_view_level_1.png)
-![Level 2](../diagrams/building_block_view_level_2.png)
+![Level 1](../diagrams/building_block_view_level_1.svg)
+![Level 2](../diagrams/building_block_view_level_2.svg)
 
 ## Whitebox Overall System
 
@@ -592,40 +592,7 @@ arc42 documentation.
 
 ## Quality Tree
 
-<div class="formalpara-title">
-
-**Content**
-
-</div>
-
-The quality tree (as defined in ATAM – Architecture Tradeoff Analysis
-Method) with quality/evaluation scenarios as leafs.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-The tree structure with priorities provides an overview for a sometimes
-large number of quality requirements.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The quality tree is a high-level overview of the quality goals and
-requirements:
-
--   tree-like refinement of the term "quality". Use "quality" or
-    "usefulness" as a root
-
--   a mind map with quality categories as main branches
-
-In any case the tree should include links to the scenarios of the
-following section.
+![Quality Tree](../diagrams/quality_tree.svg)
 
 ## Quality Scenarios
 

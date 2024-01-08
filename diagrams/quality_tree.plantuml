@@ -1,0 +1,23 @@
+@startmindmap
+
+* Quality
+** Security
+*** User data must be encrypted
+*** industry standards for data protection must be met
+** Reliability
+*** The app should be available for use > 99.99%
+*** downtime < 1h per month
+** Usability
+*** Image posting process takes < 30 sec
+*** Account creation process takes < 2 min
+** Compliance
+*** Software is compliant with DSGVO
+*** Removal Requests are processed within 24h
+** Maintainbility
+*** Code coverage > 80%, documentation > 90%
+*** Every Code change must be reviewed
+** Compatibility
+*** Compatible with the latest versions of iOS and Android (3 versions back)
+*** UI should scale accordingly even with tablet devices
+
+@endmindmap
