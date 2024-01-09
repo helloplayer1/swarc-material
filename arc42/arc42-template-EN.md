@@ -126,10 +126,8 @@ Our system interacts with Pixlr to support advanced image editing use cases and 
 
 </div>
 
-Technical interfaces (channels and transmission media) linking your
-system to its environment. In addition a mapping of domain specific
-input/output to the channels, i.e. an explanation which I/O uses which
-channel.
+The technical interfaces of our system comprise various channels and transmission media that connect our system with its environment. These interfaces facilitate the exchange of data and communication with external entities. They include:
+
 
 <div class="formalpara-title">
 
@@ -137,9 +135,7 @@ channel.
 
 </div>
 
-Many stakeholders make architectural decision based on the technical
-interfaces between the system and its context. Especially infrastructure
-or hardware designers decide these technical interfaces.
+Understanding the technical interfaces between our system and its context is crucial for making architectural decisions. These interfaces significantly influence infrastructure and hardware design choices.
 
 <div class="formalpara-title">
 
@@ -147,15 +143,30 @@ or hardware designers decide these technical interfaces.
 
 </div>
 
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels
-and input/output.
+The technical interfaces can be represented in various ways:
 
-**\<Diagram or Table>**
+- **UML Deployment Diagram**: Describing channels to neighboring systems.
+- **Mapping Table**: Showing relationships between channels and input/output.
 
-**\<optionally: Explanation of technical interfaces>**
+**Explanation of Technical Interfaces**
 
-**\<Mapping Input/Output to Channels>**
+- **HTTP/HTTPS Protocol**: This protocol serves as the primary means of interaction with external services, enabling functionalities like image editing through Pixlr integration and sharing content on other social media platforms. It processes incoming requests from users for various app features and sends corresponding responses.
+
+- **Internal Messaging System**: This system allows different components or microservices within our app's architecture to communicate seamlessly. For instance, it facilitates interactions between the image processing service, user authentication service, and content sharing service.
+
+- **Database Connectivity**: The database serves as a central repository for storing user-generated content, including uploaded images, user profiles, and application settings. It is accessed by various components to fetch required data and store new information.
+
+**Mapping Input/Output to Channels**
+
+| Input/Output               | Channel                       |
+|----------------------------|-------------------------------|
+| User image upload          | HTTP/HTTPS Protocol           |
+| Image editing requests     | HTTP/HTTPS Protocol           |
+| Content sharing            | HTTP/HTTPS Protocol           |
+| Internal service requests  | Internal Messaging System    |
+| Database queries/retrieval | Database Connectivity         |
+
+This mapping table outlines the correspondence between specific input/output actions and the channels through which they operate within the system's technical interfaces.
 
 <div style="page-break-after: always;"></div>
 
