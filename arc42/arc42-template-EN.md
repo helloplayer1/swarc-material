@@ -114,7 +114,7 @@ documentation.
 
 ## Business Context
 
-![diagram](../diagrams/business_context.png)
+![diagram](../diagrams/business_context.svg)
 
 Our system interacts with Pixlr to support advanced image editing use cases and also allows for sharing content on other social media platforms. To ensure compliance with legislation and also our own rules for allowed content, we use an external AI service to analize image uploads and classify them. Actors that interact with our system are the user and other users (community) as well as the government.
 
@@ -174,114 +174,237 @@ This mapping table outlines the correspondence between specific input/output act
 
 The app will be developed as a multiplatform app with a shared code base using the Flutter framework. While the flutter app represents the client side of the app, the backend and server will be implemented as a Node.JS application.
 
-<div style="page-break-after: always;"></div>
+| Goal/Requirement        | Architectural Approach     | Details                                                  |
+|-------------------------|----------------------------|----------------------------------------------------------|
+| Consistent Communication| RESTful Architecture       | [Rest Api Details](#rest-api) |
+| Image Handling Standard  | Standardization            | [Link Not Working](#image-format) |
+| Data Security and Privacy| End-to-End Encryption (e2e) |[Security and Privacy Details](#security-and-privacy)|
+| Unified Logging          | Centralized Logging        | [Common logging format Details](#common-logging-format)|
+
+
+
+<div  style="page-break-after: always;"></div>
 
 # Building Block View
 
-![Level 1](../diagrams/building_block_view_level_1.png)
-![Level 2](../diagrams/building_block_view_level_2.png)
+![Level 1](../diagrams/building_block_view_level_1.svg)
+![Level 2](../diagrams/building_block_view_level_2.svg)
 
 ## Whitebox Overall System
 
-Here you describe the decomposition of the overall system using the
-following white box template. It contains
+![Level 1](../diagrams/building_block_view_level_1.png)
 
--   an overview diagram
 
--   a motivation for the decomposition
+Motivation
 
--   black box descriptions of the contained building blocks. For these
-    we offer you alternatives:
+The motivation behind this decomposition is to achieve a modular and scalable design that enhances maintainability, flexibility, and collaboration among development teams. Each building block plays a importantrole in fulfilling specific functionalities and, when combined, forms a cohesive and robust system.
 
-    -   use *one* table for a short and pragmatic overview of all
-        contained building blocks and their interfaces
+By breaking down the system into distinct components such as UI Client, Search, Posts, User Management, Third-party Integration, File Storage, and Authentication, we aim to encapsulate specific responsibilities within well-defined boundaries. This approach improves the code reusability, allows independent development and testing of each module.
 
-    -   use a list of black box descriptions of the building blocks
-        according to the black box template (see below). Depending on
-        your choice of tool this list could be sub-chapters (in text
-        files), sub-pages (in a Wiki) or nested elements (in a modeling
-        tool).
+As we explore the descriptions and connections of each black box, we will explain how our system works on the inside.
 
--   (optional:) important interfaces, that are not explained in the
-    black box templates of a building block, but are very important for
-    understanding the white box. Since there are so many ways to specify
-    interfaces why do not provide a specific template for them. In the
-    worst case you have to specify and describe syntax, semantics,
-    protocols, error handling, restrictions, versions, qualities,
-    necessary compatibilities and many things more. In the best case you
-    will get away with examples or simple signatures.
 
-***\<Overview Diagram>***
 
-Motivation  
-*\<text explanation>*
+  | Building Block              | Description                                               |
+|-----------------------------|-----------------------------------------------------------|
+| UI Client                   | The user interface component responsible for rendering and interacting with the application on the client side.|
+| Search                      | Functionality for searching and retrieving relevant information from the system, enhancing user experience.|
+| Posts                       | Manages the creation, retrieval, and manipulation of user-generated content, such as articles, posts, or messages.|
+| User Management             | Handles user-related functionalities, including registration, login, profile management, and permissions.|
+| Third-party Integration     | Enables the integration of external services or APIs to enhance the application's functionality through third-party services.|
+| File Storage                | Manages the storage and retrieval of files, images, or other media within the system.|
+| Authentication              | Ensures secure access to the system by verifying and validating the identity of users during login and session management.|
 
-Contained Building Blocks  
-*\<Description of contained building block (black boxes)>*
 
-Important Interfaces  
-*\<Description of important interfaces>*
+### UI Client
 
-Insert your explanations of black boxes from level 1:
+**Purpose/Responsibility:**  
+The UI Client serves as the front-end interface responsible for rendering and facilitating user interaction with the application. It provides a visually appealing and user-friendly experience, ensuring seamless navigation and accessibility.
 
-If you use tabular form you will only describe your black boxes with
-name and responsibility according to the following schema:
+**Interface(s):**
 
-| **Name**         | **Responsibility** |
-| ---------------- | ------------------ |
-| *\<black box 1>* | *\<Text>*          |
-| *\<black box 2>* | *\<Text>*          |
+-   User input handling
+-   Communication with the server-side components through defined API endpoints
 
-If you use a list of black box descriptions then you fill in a separate
-black box template for every important building block . Its headline is
-the name of the black box.
+**Quality/Performance Characteristics:**
 
-### \<Name black box 1>
+-   Responsiveness
+-   Cross-browser compatibility
+-   User interface responsiveness
 
-Here you describe \<black box 1> according the the following black box
-template:
+**Directory/File Location:**
 
--   Purpose/Responsibility
+-   `/client/ui`
 
--   Interface(s), when they are not extracted as separate paragraphs.
-    This interfaces may include qualities and performance
-    characteristics.
+**Fulfilled Requirements:**
 
--   (Optional) Quality-/Performance characteristics of the black box,
-    e.g.availability, run time behavior, ….
+-   Requirement #1: Intuitive user interface design
+-   Requirement #2: Cross-browser compatibility
 
--   (Optional) directory/file location
+**Open Issues/Problems/Risks:**
 
--   (Optional) Fulfilled requirements (if you need traceability to
-    requirements).
+-   Potential latency issues in resource-intensive operations
 
--   (Optional) Open issues/problems/risks
+### Search
 
-*\<Purpose/Responsibility>*
+**Purpose/Responsibility:**  
+The Search component is responsible for enabling users to search and retrieve relevant information within the system efficiently. It enhances user experience by providing quick and accurate search results.
 
-*\<Interface(s)>*
+**Interface(s):**
 
-*\<(Optional) Quality/Performance Characteristics>*
+-   Query processing and indexing
+-   Integration with external search engines or algorithms
 
-*\<(Optional) Directory/File Location>*
+**Quality/Performance Characteristics:**
 
-*\<(Optional) Fulfilled Requirements>*
+-   Search accuracy
+-   Query response time
 
-*\<(optional) Open Issues/Problems/Risks>*
+**Directory/File Location:**
 
-### \<Name black box 2>
+-   `/services/search`
 
-*\<black box template>*
+**Fulfilled Requirements:**
 
-### \<Name black box n>
+-   Requirement #5: Efficient and accurate search functionality
 
-*\<black box template>*
+**Open Issues/Problems/Risks:**
 
-### \<Name interface 1>
+-   Integration challenges with certain search algorithms
 
-…
+### Posts
 
-### \<Name interface m>
+**Purpose/Responsibility:**  
+The Posts component manages the creation, retrieval, and manipulation of user-generated content such as articles, posts, or messages within the system.
+
+**Interface(s):**
+
+-   CRUD (Create, Read, Update, Delete) operations for posts
+-   Integration with the authentication system for user-specific posts
+
+**Quality/Performance Characteristics:**
+
+-   Speed and efficiency in handling large datasets
+
+**Directory/File Location:**
+
+-   `/services/posts`
+
+**Fulfilled Requirements:**
+
+-   Requirement #3: Efficient handling of user-generated content
+
+**Open Issues/Problems/Risks:**
+
+-   Potential scalability concerns with a high volume of posts
+
+### User Management
+
+**Purpose/Responsibility:**  
+User Management oversees user-related functionalities, including registration, login, profile management, and permissions.
+
+**Interface(s):**
+
+-   User authentication and authorization
+-   User profile data retrieval and update operations
+
+**Quality/Performance Characteristics:**
+
+-   Secure user authentication
+-   Authorization control based on user roles
+
+**Directory/File Location:**
+
+-   `/services/user_management`
+
+**Fulfilled Requirements:**
+
+-   Requirement #4: Secure user authentication and authorization
+
+**Open Issues/Problems/Risks:**
+
+-   Potential vulnerabilities in the authentication process
+
+### Third-party Integration
+
+**Purpose/Responsibility:**  
+Third-party Integration facilitates the seamless integration of external services or APIs to enhance the application's functionality.
+
+**Interface(s):**
+
+-   Communication with third-party APIs
+-   Data exchange formats and protocols
+
+**Quality/Performance Characteristics:**
+
+-   Reliability of third-party service connections
+
+**Directory/File Location:**
+
+-   `/integrations/third_party`
+
+**Fulfilled Requirements:**
+
+-   Requirement #6: Integration with specified third-party services
+
+**Open Issues/Problems/Risks:**
+
+-   Dependency on third-party service availability
+
+### File Storage
+
+**Purpose/Responsibility:**  
+File Storage manages the storage and retrieval of files, images, or other media within the system.
+
+**Interface(s):**
+
+-   File upload and download operations
+-   Integration with the authentication system for secure access control
+
+**Quality/Performance Characteristics:**
+
+-   Scalability and efficiency in handling large files
+
+**Directory/File Location:**
+
+-   `/services/file_storage`
+
+**Fulfilled Requirements:**
+
+-   Requirement #7: Efficient file storage and retrieval
+
+**Open Issues/Problems/Risks:**
+
+-   Potential constraints on storage capacity
+
+### Authentication
+
+**Purpose/Responsibility:**  
+Authentication ensures secure access to the system by verifying and validating the identity of users during login and session management.
+
+**Interface(s):**
+
+-   User login and logout operations
+-   Integration with user management for authentication data
+
+**Quality/Performance Characteristics:**
+
+-   Security of user credentials
+-   Session management efficiency
+
+**Directory/File Location:**
+
+-   `/services/authentication`
+
+**Fulfilled Requirements:**
+
+-   Requirement #8: Secure user authentication
+
+**Open Issues/Problems/Risks:**
+
+-   Potential vulnerabilities in session management
+
+  
 
 ## Level 2
 
@@ -603,40 +726,7 @@ arc42 documentation.
 
 ## Quality Tree
 
-<div class="formalpara-title">
-
-**Content**
-
-</div>
-
-The quality tree (as defined in ATAM – Architecture Tradeoff Analysis
-Method) with quality/evaluation scenarios as leafs.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-The tree structure with priorities provides an overview for a sometimes
-large number of quality requirements.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The quality tree is a high-level overview of the quality goals and
-requirements:
-
--   tree-like refinement of the term "quality". Use "quality" or
-    "usefulness" as a root
-
--   a mind map with quality categories as main branches
-
-In any case the tree should include links to the scenarios of the
-following section.
+![Quality Tree](../diagrams/quality_tree.svg)
 
 ## Quality Scenarios
 
