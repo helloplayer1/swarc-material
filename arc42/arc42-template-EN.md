@@ -407,55 +407,103 @@ Authentication ensures secure access to the system by verifying and validating t
   
 
 ## Level 2
+ ![Level 2](../diagrams/building_block_view_level_2.png)
 
-Here you can specify the inner structure of (some) building blocks from
-level 1 as white boxes.
+**Motivation**
 
-You have to decide which building blocks of your system are important
-enough to justify such a detailed description. Please prefer relevance
-over completeness. Specify important, surprising, risky, complex or
-volatile building blocks. Leave out normal, simple, boring or
-standardized parts of your system
+The motivation behind this decomposition is to achieve a modular and maintainable design that allows for the efficient handling of user-generated content. By breaking down the "Posts" building block into distinct components—PostController, PostService, and PostRepository—we aim to encapsulate specific responsibilities within well-defined boundaries.
 
-### White Box *\<building block 1>*
+The PostController serves as the entry point for post-related operations, handling user requests and orchestrating the flow of data between the user interface and the underlying services. The PostService encapsulates the business logic and rules associated with posts, ensuring consistency and coherence in post-related functionalities. Lastly, the PostRepository manages the data access layer, handling database interactions and ensuring the persistence and integrity of post-related data.
 
-…describes the internal structure of *building block 1*.
 
-*\<white box template>*
+  | Building Block       | Description                                                          |
+|----------------------|----------------------------------------------------------------------|
+| PostController       | Responsible for handling incoming requests related to posts. It processes user input, communicates with the PostService, and manages the overall flow of post-related operations. |
+| PostService           | Manages the business logic and application-specific rules related to posts. It coordinates with the PostRepository for data retrieval and storage, ensuring proper handling of post-related operations. |
+| PostRepository       | Deals with the data access layer for posts. It is responsible for database interactions, including storing, retrieving, updating, and deleting post-related data. The PostRepository communicates with the database to ensure data integrity and persistence. |
 
-### White Box *\<building block 2>*
+### PostController
 
-*\<white box template>*
+**Purpose/Responsibility:**  
+The PostController is responsible for handling incoming requests related to posts. It processes user input, communicates with the PostService, and manages the overall flow of post-related operations.
 
-…
+**Interface(s):**
 
-### White Box *\<building block m>*
+-   User input handling
+-   Communication with the PostService
 
-*\<white box template>*
+**Quality/Performance Characteristics:**
 
-## Level 3
+-   Responsiveness in processing user requests
+-   Efficiency in managing the flow of data between the user interface and PostService
 
-Here you can specify the inner structure of (some) building blocks from
-level 2 as white boxes.
+**Directory/File Location:**
 
-When you need more detailed levels of your architecture please copy this
-part of arc42 for additional levels.
+-   `/controllers`
 
-### White Box \<\_building block x.1\_\>
+**Fulfilled Requirements:**
 
-Specifies the internal structure of *building block x.1*.
+-   Requirement #9: Efficient handling of user requests for post-related operations
 
-*\<white box template>*
+**Open Issues/Problems/Risks:**
 
-### White Box \<\_building block x.2\_\>
+-   Potential latency issues during peak usage periods
 
-*\<white box template>*
+### PostService
 
-### White Box \<\_building block y.1\_\>
+**Purpose/Responsibility:**  
+The PostService manages the business logic and application-specific rules related to posts. It coordinates with the PostRepository for data retrieval and storage, ensuring proper handling of post-related operations.
 
-*\<white box template>*
+**Interface(s):**
 
-<div style="page-break-after: always;"></div>
+-   Communication with the PostController and PostRepository
+-   Business logic execution for post-related functionalities
+
+**Quality/Performance Characteristics:**
+
+-   Consistency in enforcing business rules
+-   Efficiency in coordinating data flow between PostController and PostRepository
+
+**Directory/File Location:**
+
+-   `/services`
+
+**Fulfilled Requirements:**
+
+-   Requirement #10: Consistent application of business rules for post-related functionalities
+
+**Open Issues/Problems/Risks:**
+
+-   Potential complexity in managing intricate business rules for diverse post operations
+
+### PostRepository
+
+**Purpose/Responsibility:**  
+The PostRepository deals with the data access layer for posts. It is responsible for database interactions, including storing, retrieving, updating, and deleting post-related data. The PostRepository communicates with the database to ensure data integrity and persistence.
+
+**Interface(s):**
+
+-   Communication with the PostService
+-   Database operations for post-related data (CRUD operations)
+
+**Quality/Performance Characteristics:**
+
+-   Data integrity and consistency in database operations
+-   Efficiency in handling a large volume of post-related data
+
+**Directory/File Location:**
+
+-   `/repositories`
+
+**Fulfilled Requirements:**
+
+-   Requirement #11: Reliable storage and retrieval of post-related data
+
+**Open Issues/Problems/Risks:**
+
+-   Potential challenges in optimizing database queries for performance in complex scenarios
+
+
 
 # Runtime View
 
