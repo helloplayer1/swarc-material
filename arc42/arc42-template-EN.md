@@ -785,45 +785,46 @@ Compatibility:
 ### Security: Data Encryption
 
 Context:
--   A user uploads a private image to the app.
+-   A user uploads a private image to the app
 
 Problem:
--   Ensure that the image, along with any personal data, is transmitted and stored securely through encryption mechanisms.
+-   Ensure that the image, along with any personal data, is transmitted and stored securely through encryption mechanisms
 
 Solution:
--   Implement end-to-end encryption for data transmission, utilizing industry-standard encryption algorithms.
--   Employ encryption for stored images and user information in the database.
+-   Implement end-to-end encryption for data transmission, utilizing industry-standard encryption algorithms
+-   Employ encryption for stored images and user information in the database
+  
 Consequences:
--   User data, including images, remains confidential and secure, meeting privacy and security standards.
+-   User data, including images, remains confidential and secure, meeting privacy and security standards
   
 ### Reliability: Availability during Peak Usage
 
 Context:
--   A significant number of users access the app simultaneously during peak hours.
+-   A significant number of users access the app simultaneously during peak hours
 
 Problem:
--   Ensure the app remains available and responsive under high user load.
+-   Ensure the app remains available and responsive under high user load
 
 Solution:
--   Implement auto-scaling mechanisms to dynamically allocate resources based on demand.
--   Optimize database queries and image loading processes for efficient performance.
+-   Implement auto-scaling mechanisms to dynamically allocate resources based on demand
+-   Optimize database queries and image loading processes for efficient performance
 
 Consequences:
--   The app maintains stability and responsiveness during peak usage, preventing downtime and ensuring a reliable user experience.
+-   The app maintains stability and responsiveness during peak usage, preventing downtime and ensuring a reliable user experience
   
 ### Usability: User Onboarding
 
 Context:
--   A new user creates an account and navigates through basic features.
+-   A new user creates an account and navigates through basic features
 
 Problem:
--   Evaluate the onboarding process for simplicity and clarity, ensuring users can easily understand and use essential functionalities.
+-   Evaluate the onboarding process for simplicity and clarity, ensuring users can easily understand and use essential functionalities
 
 Solution:
--   Provide a guided onboarding experience with clear instructions for account creation, image sharing, and profile setup.
+-   Provide a guided onboarding experience with clear instructions for account creation, image sharing, and profile setup
 
 Consequences:
--   New users can quickly adapt to the app, leading to higher user satisfaction and engagement.
+-   New users can quickly adapt to the app, leading to higher user satisfaction and engagement
 
 # Risks and Technical Debts
 
