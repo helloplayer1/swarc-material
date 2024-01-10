@@ -746,32 +746,36 @@ We need to make sure that the communication between the client and the server is
 
 # Quality Requirements
 
-<div class="formalpara-title">
+Security
 
-**Content**
+-   User data, including images and personal information, must be encrypted during transmission and storage
+-   The app should comply with industry standards for data protection and privacy regulations
 
-</div>
+Reliability
 
-This section contains all quality requirements as quality tree with
-scenarios. The most important ones have already been described in
-section 1.2. (quality goals)
+-   The app should be available for use 99.9% of the time to ensure a reliable user experience
+-   In case of downtime or maintenance, users should be notified in advance, and the duration of downtime should be minimized
 
-Here you can also capture quality requirements with lesser priority,
-which will not create high risks when they are not fully achieved.
+Usability
 
-<div class="formalpara-title">
+-   The image posting process takes less than 30 seconds
+-   The account creation process takes less than 2 minutes.
 
-**Motivation**
+Compliance
 
-</div>
+-   The software adheres to DSGVO (Datenschutz-Grundverordnung), ensuring compliance with data protection regulations
+-   If the user wishes to initiate a removal request, it should be carried out in less than 24 hours
 
-Since quality requirements will have a lot of influence on architectural
-decisions you should know for every stakeholder what is really important
-to them, concrete and measurable.
+Maintainability
 
-See [Quality Requirements](https://docs.arc42.org/section-10/) in the
-arc42 documentation.
+-   The code coverage exceeds 80%, and the documentation surpasses 90%.
+-   Every code change must undergo a review.
 
+Compatibility
+
+-   The app should be compatible with the latest versions of iOS and Android operating systems
+-   It should support a range of devices and screen sizes to cater to a diverse user base
+    
 ## Quality Tree
 
 ![Quality Tree](../diagrams/quality_tree.svg)
