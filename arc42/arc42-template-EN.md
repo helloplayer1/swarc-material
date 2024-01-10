@@ -746,32 +746,32 @@ We need to make sure that the communication between the client and the server is
 
 # Quality Requirements
 
-Security
+Security:
 
 -   User data, including images and personal information, must be encrypted during transmission and storage
 -   The app should comply with industry standards for data protection and privacy regulations
 
-Reliability
+Reliability:
 
 -   The app should be available for use 99.9% of the time to ensure a reliable user experience
 -   In case of downtime or maintenance, users should be notified in advance, and the duration of downtime should be minimized
 
-Usability
+Usability:
 
 -   The image posting process takes less than 30 seconds
--   The account creation process takes less than 2 minutes.
+-   The account creation process takes less than 2 minutes
 
-Compliance
+Compliance:
 
 -   The software adheres to DSGVO (Datenschutz-Grundverordnung), ensuring compliance with data protection regulations
 -   If the user wishes to initiate a removal request, it should be carried out in less than 24 hours
 
-Maintainability
+Maintainability:
 
--   The code coverage exceeds 80%, and the documentation surpasses 90%.
--   Every code change must undergo a review.
+-   The code coverage exceeds 80%, and the documentation surpasses 90%
+-   Every code change must undergo a review
 
-Compatibility
+Compatibility:
 
 -   The app should be compatible with the latest versions of iOS and Android operating systems
 -   It should support a range of devices and screen sizes to cater to a diverse user base
@@ -782,53 +782,48 @@ Compatibility
 
 ## Quality Scenarios
 
-<div class="formalpara-title">
+### Security: Data Encryption
 
-**Contents**
+Context:
+-   A user uploads a private image to the app.
 
-</div>
+Problem:
+-   Ensure that the image, along with any personal data, is transmitted and stored securely through encryption mechanisms.
 
-Concretization of (sometimes vague or implicit) quality requirements
-using (quality) scenarios.
+Solution:
+-   Implement end-to-end encryption for data transmission, utilizing industry-standard encryption algorithms.
+-   Employ encryption for stored images and user information in the database.
+Consequences:
+-   User data, including images, remains confidential and secure, meeting privacy and security standards.
+  
+### Reliability: Availability during Peak Usage
 
-These scenarios describe what should happen when a stimulus arrives at
-the system.
+Context:
+-   A significant number of users access the app simultaneously during peak hours.
 
-For architects, two kinds of scenarios are important:
+Problem:
+-   Ensure the app remains available and responsive under high user load.
 
--   Usage scenarios (also called application scenarios or use case
-    scenarios) describe the system’s runtime reaction to a certain
-    stimulus. This also includes scenarios that describe the system’s
-    efficiency or performance. Example: The system reacts to a user’s
-    request within one second.
+Solution:
+-   Implement auto-scaling mechanisms to dynamically allocate resources based on demand.
+-   Optimize database queries and image loading processes for efficient performance.
 
--   Change scenarios describe a modification of the system or of its
-    immediate environment. Example: Additional functionality is
-    implemented or requirements for a quality attribute change.
+Consequences:
+-   The app maintains stability and responsiveness during peak usage, preventing downtime and ensuring a reliable user experience.
+  
+### Usability: User Onboarding
 
-<div class="formalpara-title">
+Context:
+-   A new user creates an account and navigates through basic features.
 
-**Motivation**
+Problem:
+-   Evaluate the onboarding process for simplicity and clarity, ensuring users can easily understand and use essential functionalities.
 
-</div>
+Solution:
+-   Provide a guided onboarding experience with clear instructions for account creation, image sharing, and profile setup.
 
-Scenarios make quality requirements concrete and allow to more easily
-measure or decide whether they are fulfilled.
-
-Especially when you want to assess your architecture using methods like
-ATAM you need to describe your quality goals (from section 1.2) more
-precisely down to a level of scenarios that can be discussed and
-evaluated.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Tabular or free form text.
-
-<div style="page-break-after: always;"></div>
+Consequences:
+-   New users can quickly adapt to the app, leading to higher user satisfaction and engagement.
 
 # Risks and Technical Debts
 
