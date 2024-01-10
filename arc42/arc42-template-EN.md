@@ -26,13 +26,6 @@ concepts. For documentation of your own system you use better the
 The image sharing app allows users to upload, edit and share images with their friends, family and the wider community. 
 
 ## Requirements Overview
-
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
 Main features of the app are:
 
 * Upload photos
@@ -72,46 +65,6 @@ Main features of the app are:
 | OS Independent development        | The development should work regardless of the desktop OS, as our team uses multiple different devices |
 
 # System Scope and Context
-
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-System scope and context - as the name suggests - delimits your system
-(i.e. your scope) from all its communication partners (neighboring
-systems and users, i.e. the context of your system). It thereby
-specifies the external interfaces.
-
-If necessary, differentiate the business context (domain specific inputs
-and outputs) from the technical context (channels, protocols, hardware).
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-The domain interfaces and technical interfaces to communication partners
-are among your system’s most critical aspects. Make sure that you
-completely understand them.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Various options:
-
--   Context diagrams
-
--   Lists of communication partners and their interfaces.
-
-See [Context and Scope](https://docs.arc42.org/section-3/) in the arc42
-documentation.
-
 ## Business Context
 
 ![diagram](../diagrams/business_context.svg)
@@ -119,35 +72,6 @@ documentation.
 Our system interacts with Pixlr to support advanced image editing use cases and also allows for sharing content on other social media platforms. To ensure compliance with legislation and also our own rules for allowed content, we use an external AI service to analize image uploads and classify them. Actors that interact with our system are the user and other users (community) as well as the government.
 
 ## Technical Context
-
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-The technical interfaces of our system comprise various channels and transmission media that connect our system with its environment. These interfaces facilitate the exchange of data and communication with external entities. They include:
-
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Understanding the technical interfaces between our system and its context is crucial for making architectural decisions. These interfaces significantly influence infrastructure and hardware design choices.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The technical interfaces can be represented in various ways:
-
-- **UML Deployment Diagram**: Describing channels to neighboring systems.
-- **Mapping Table**: Showing relationships between channels and input/output.
-
 **Explanation of Technical Interfaces**
 
 - **HTTP/HTTPS Protocol**: This protocol serves as the primary means of interaction with external services, enabling functionalities like image editing through Pixlr integration and sharing content on other social media platforms. It processes incoming requests from users for various app features and sends corresponding responses.
@@ -158,13 +82,13 @@ The technical interfaces can be represented in various ways:
 
 **Mapping Input/Output to Channels**
 
-| Input/Output               | Channel                       |
-|----------------------------|-------------------------------|
-| User image upload          | HTTP/HTTPS Protocol           |
-| Image editing requests     | HTTP/HTTPS Protocol           |
-| Content sharing            | HTTP/HTTPS Protocol           |
-| Internal service requests  | Internal Messaging System    |
-| Database queries/retrieval | Database Connectivity         |
+| Input/Output               | Channel                   |
+| -------------------------- | ------------------------- |
+| User image upload          | HTTP/HTTPS Protocol       |
+| Image editing requests     | HTTP/HTTPS Protocol       |
+| Content sharing            | HTTP/HTTPS Protocol       |
+| Internal service requests  | Internal Messaging System |
+| Database queries/retrieval | Database Connectivity     |
 
 This mapping table outlines the correspondence between specific input/output actions and the channels through which they operate within the system's technical interfaces.
 
@@ -174,25 +98,21 @@ This mapping table outlines the correspondence between specific input/output act
 
 The app will be developed as a multiplatform app with a shared code base using the Flutter framework. While the flutter app represents the client side of the app, the backend and server will be implemented as a Node.JS application.
 
-| Goal/Requirement        | Architectural Approach     | Details                                                  |
-|-------------------------|----------------------------|----------------------------------------------------------|
-| Consistent Communication| RESTful Architecture       | [Rest Api Details](#rest-api) |
-| Image Handling Standard  | Standardization            | [Link Not Working](#image-format) |
-| Data Security and Privacy| End-to-End Encryption (e2e) |[Security and Privacy Details](#security-and-privacy)|
-| Unified Logging          | Centralized Logging        | [Common logging format Details](#common-logging-format)|
+| Goal/Requirement          | Architectural Approach      | Details                                                 |
+| ------------------------- | --------------------------- | ------------------------------------------------------- |
+| Consistent Communication  | RESTful Architecture        | [Rest Api Details](#rest-api)                           |
+| Image Handling Standard   | Standardization             | [Image Format](#image-format-png)                       |
+| Data Security and Privacy | End-to-End Encryption (e2e) | [Security and Privacy Details](#security-and-privacy)   |
+| Unified Logging           | Centralized Logging         | [Common logging format Details](#common-logging-format) |
 
 
 
 <div  style="page-break-after: always;"></div>
 
 # Building Block View
-
-![Level 1](../diagrams/building_block_view_level_1.svg)
-![Level 2](../diagrams/building_block_view_level_2.svg)
-
 ## Whitebox Overall System
 
-![Level 1](../diagrams/building_block_view_level_1.png)
+![Level 1](../diagrams/building_block_view_level_1.svg)
 
 
 Motivation
@@ -205,15 +125,15 @@ As we explore the descriptions and connections of each black box, we will explai
 
 
 
-  | Building Block              | Description                                               |
-|-----------------------------|-----------------------------------------------------------|
-| UI Client                   | The user interface component responsible for rendering and interacting with the application on the client side.|
-| Search                      | Functionality for searching and retrieving relevant information from the system, enhancing user experience.|
-| Posts                       | Manages the creation, retrieval, and manipulation of user-generated content, such as articles, posts, or messages.|
-| User Management             | Handles user-related functionalities, including registration, login, profile management, and permissions.|
-| Third-party Integration     | Enables the integration of external services or APIs to enhance the application's functionality through third-party services.|
-| File Storage                | Manages the storage and retrieval of files, images, or other media within the system.|
-| Authentication              | Ensures secure access to the system by verifying and validating the identity of users during login and session management.|
+  | Building Block          | Description                                                                                                                   |
+  | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+  | UI Client               | The user interface component responsible for rendering and interacting with the application on the client side.               |
+  | Search                  | Functionality for searching and retrieving relevant information from the system, enhancing user experience.                   |
+  | Posts                   | Manages the creation, retrieval, and manipulation of user-generated content, such as articles, posts, or messages.            |
+  | User Management         | Handles user-related functionalities, including registration, login, profile management, and permissions.                     |
+  | Third-party Integration | Enables the integration of external services or APIs to enhance the application's functionality through third-party services. |
+  | File Storage            | Manages the storage and retrieval of files, images, or other media within the system.                                         |
+  | Authentication          | Ensures secure access to the system by verifying and validating the identity of users during login and session management.    |
 
 
 ### UI Client
@@ -416,11 +336,11 @@ The motivation behind this decomposition is to achieve a modular and maintainabl
 The PostController serves as the entry point for post-related operations, handling user requests and orchestrating the flow of data between the user interface and the underlying services. The PostService encapsulates the business logic and rules associated with posts, ensuring consistency and coherence in post-related functionalities. Lastly, the PostRepository manages the data access layer, handling database interactions and ensuring the persistence and integrity of post-related data.
 
 
-  | Building Block       | Description                                                          |
-|----------------------|----------------------------------------------------------------------|
-| PostController       | Responsible for handling incoming requests related to posts. It processes user input, communicates with the PostService, and manages the overall flow of post-related operations. |
-| PostService           | Manages the business logic and application-specific rules related to posts. It coordinates with the PostRepository for data retrieval and storage, ensuring proper handling of post-related operations. |
-| PostRepository       | Deals with the data access layer for posts. It is responsible for database interactions, including storing, retrieving, updating, and deleting post-related data. The PostRepository communicates with the database to ensure data integrity and persistence. |
+  | Building Block | Description                                                                                                                                                                                                                                                   |
+  | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | PostController | Responsible for handling incoming requests related to posts. It processes user input, communicates with the PostService, and manages the overall flow of post-related operations.                                                                             |
+  | PostService    | Manages the business logic and application-specific rules related to posts. It coordinates with the PostRepository for data retrieval and storage, ensuring proper handling of post-related operations.                                                       |
+  | PostRepository | Deals with the data access layer for posts. It is responsible for database interactions, including storing, retrieving, updating, and deleting post-related data. The PostRepository communicates with the database to ensure data integrity and persistence. |
 
 ### PostController
 
@@ -788,11 +708,11 @@ Context:
 -   A user uploads a private image to the app
 
 Problem:
--   Ensure that the image, along with any personal data, is transmitted and stored securely through encryption mechanisms
+-   Ensure that the image, along with any personal data, is transmitted and stored securely through encryption mechanisms.
 
 Solution:
--   Implement end-to-end encryption for data transmission, utilizing industry-standard encryption algorithms
--   Employ encryption for stored images and user information in the database
+-   Implement end-to-end encryption for data transmission, utilizing industry-standard encryption algorithms.
+-   Employ encryption for stored images and user information in the database.
   
 Consequences:
 -   User data, including images, remains confidential and secure, meeting privacy and security standards
@@ -800,31 +720,31 @@ Consequences:
 ### Reliability: Availability during Peak Usage
 
 Context:
--   A significant number of users access the app simultaneously during peak hours
+-   A significant number of users access the app simultaneously during peak hours.
 
 Problem:
--   Ensure the app remains available and responsive under high user load
+-   Ensure the app remains available and responsive under high user load.
 
 Solution:
--   Implement auto-scaling mechanisms to dynamically allocate resources based on demand
--   Optimize database queries and image loading processes for efficient performance
+-   Implement auto-scaling mechanisms to dynamically allocate resources based on demand.
+-   Optimize database queries and image loading processes for efficient performance.
 
 Consequences:
--   The app maintains stability and responsiveness during peak usage, preventing downtime and ensuring a reliable user experience
+-   The app maintains stability and responsiveness during peak usage, preventing downtime and ensuring a reliable user experience.
   
 ### Usability: User Onboarding
 
 Context:
--   A new user creates an account and navigates through basic features
+-   A new user creates an account and navigates through basic features.
 
 Problem:
--   Evaluate the onboarding process for simplicity and clarity, ensuring users can easily understand and use essential functionalities
+-   Evaluate the onboarding process for simplicity and clarity, ensuring users can easily understand and use essential functionalities.
 
 Solution:
--   Provide a guided onboarding experience with clear instructions for account creation, image sharing, and profile setup
+-   Provide a guided onboarding experience with clear instructions for account creation, image sharing, and profile setup.
 
 Consequences:
--   New users can quickly adapt to the app, leading to higher user satisfaction and engagement
+-   New users can quickly adapt to the app, leading to higher user satisfaction and engagement.
 
 # Risks and Technical Debts
 
