@@ -429,10 +429,12 @@ The PostRepository deals with the data access layer for posts. It is responsible
 arc42 Runtime Views provide a dynamic perspective on a software system's architecture, detailing the interactions, sequences, and behavior of components during runtime execution.
 
 ## Runtime Scenario 1: Third-party Integration
-insert diagram
+
+![Sequence Diagram Third Party Integration](../diagrams/sequence_diagram_third_party_integration.svg)
 
 ## Runtime Scenario 2: Commenting and Liking Images
-insert diagram
+
+![Sequence Diagram Comment and Like](../diagrams/sequence_diagram_comment_and_like.svg)
 
 # Deployment View
 

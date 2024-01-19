@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant App
+participant Pixlr
+database Database
+
+== User selects and edits an image with Pixlr ==
+User -> App: 1. Selects image
+User -> App: 2. Clicks "Edit with Pixlr" button
+App -> Pixlr: 3. Initiates editing process
+Pixlr -> Pixlr: 4. Edits image using Pixlr tools
+Pixlr --> App: Edited image
+User -> App: 5. Saves edited image to device
+User -> App: 6. Returns to app
+User -> App: 7. Selects edited image for upload
+App -> Database: 8. Uploads edited image
+
+== Alternate Flows ==
+User -> App: Cancels Pixlr editing
+App --> User: Returns to image selection screen
+
+User -> App: Error during Pixlr integration
+App --> User: Prompt to try again or contact support
+
+@enduml

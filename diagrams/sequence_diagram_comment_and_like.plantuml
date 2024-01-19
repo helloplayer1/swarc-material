@@ -1,0 +1,23 @@
+@startuml
+actor User
+participant App
+database Database
+participant ImageUploader
+participant NotificationService
+
+== User comments on or likes an image ==
+User -> App: 1. Navigates to an image
+User -> App: 2. Taps on "Comment" or "Like" button
+App -> App: 3. Prompts user for comment or like
+User --> App: 4. Enters comment or confirms like
+App -> Database: 5. Stores comment or like
+App -> ImageUploader: 6. Associates comment/like with image
+ImageUploader -> Database: 7. Updates image metadata
+App -> NotificationService: 8. Notifies owner of the image
+NotificationService --> User: 9. Sends notification to owner
+App --> User: 10. Displays confirmation message
+
+== Alternate Flow ==
+User -> App: Cancels comment or like
+
+@enduml
