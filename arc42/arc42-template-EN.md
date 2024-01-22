@@ -438,113 +438,274 @@ arc42 Runtime Views provide a dynamic perspective on a software system's archite
 
 # Deployment View
 
-<div class="formalpara-title">
+The deployment view provides insights into the technical infrastructure used to execute the system, encompassing various elements such as geographical locations, environments, computers, processors, channels, and network topologies. It also illustrates the mapping of software building blocks onto these infrastructure elements.
 
-**Content**
+## Environments
 
-</div>
+### Development Environment
 
-The deployment view describes:
+The development environment serves as the initial stage for software development and testing. Developers interact with the system's components in a controlled environment, allowing for debugging and iterative development.
 
-1.  technical infrastructure used to execute your system, with
-    infrastructure elements like geographical locations, environments,
-    computers, processors, channels and net topologies as well as other
-    infrastructure elements and
+### Test Environment
 
-2.  mapping of (software) building blocks to that infrastructure
-    elements.
+The test environment replicates conditions similar to the production environment, enabling comprehensive testing of the system's functionalities. Quality assurance processes and system validation take place in this environment.
 
-Often systems are executed in different environments, e.g. development
-environment, test environment, production environment. In such cases you
-should document all relevant environments.
+### Production Environment
 
-Especially document a deployment view if your software is executed as
-distributed system with more than one computer, processor, server or
-container or when you design and construct your own hardware processors
-and chips.
+The production environment is the live, operational setting where end-users interact with the system. It hosts the system's building blocks and ensures stability, performance, and reliability for a seamless user experience.
 
-From a software perspective it is sufficient to capture only those
-elements of an infrastructure that are needed to show a deployment of
-your building blocks. Hardware architects can go beyond that and
-describe an infrastructure to any level of detail they need to capture.
+## Infrastructure Elements
 
-<div class="formalpara-title">
+### Servers
 
-**Motivation**
+Servers host various building blocks of the system and are distributed across different geographical locations to enhance reliability and reduce latency. Load balancing mechanisms are employed to distribute incoming requests efficiently.
 
-</div>
+#### Server 1 (Example)
 
-Software does not run without hardware. This underlying infrastructure
-can and will influence a system and/or some cross-cutting concepts.
-Therefore, there is a need to know the infrastructure.
+-   Location: Frankfurt, Germany
+-   Roles:
+    -   UI Client
+    -   Search
+    -   Posts
 
-Maybe a highest level deployment diagram is already contained in section
-3.2. as technical context with your own infrastructure as ONE black box.
-In this section one can zoom into this black box using additional
-deployment diagrams:
+#### Server 2 (Example)
 
--   UML offers deployment diagrams to express that view. Use it,
-    probably with nested diagrams, when your infrastructure is more
-    complex.
+-   Location: New York, USA
+-   Roles:
+    -   User Management
+    -   Third-party Integration
+    -   Authentication
 
--   When your (hardware) stakeholders prefer other kinds of diagrams
-    rather than a deployment diagram, let them use any kind that is able
-    to show nodes and channels of the infrastructure.
+### Databases
 
-See [Deployment View](https://docs.arc42.org/section-7/) in the arc42
-documentation.
+Databases store and manage persistent data crucial for the system's functionality. They are strategically located to ensure data availability and minimize access latency.
+
+#### Database 1 (Example)
+
+-   Type: SQL Database
+-   Location: London, UK
+-   Associated Building Blocks:
+    -   User Management
+    -   Authentication
+
+#### Database 2 (Example)
+
+-   Type: NoSQL Database
+-   Location: Singapore
+-   Associated Building Blocks:
+    -   Posts
+    -   File Storage
+
+### Networking
+
+Network infrastructure facilitates communication between different building blocks and ensures seamless data flow. Security measures, such as firewalls and encryption, are implemented to protect data during transmission.
+
+#### Cloud Network (Example)
+
+-   Cloud Provider: AWS
+-   Components:
+    -   Communication channels between building blocks
+    -   Integration with third-party services
+
+## Mapping of Building Blocks
+
+### UI Client
+
+-   Deployed on: Server 1 (Frankfurt, Germany)
+
+### Search
+
+-   Deployed on: Server 1 (Frankfurt, Germany)
+
+### Posts
+
+-   Deployed on: Server 1 (Frankfurt, Germany)
+
+### User Management
+
+-   Deployed on: Server 2 (New York, USA)
+
+### Third-party Integration
+
+-   Deployed on: Server 2 (New York, USA)
+
+### Authentication
+
+-   Deployed on: Server 2 (New York, USA)
+
+### File Storage
+
+-   Deployed on: Server 1 (Frankfurt, Germany)
+
+### PostController
+
+-   Deployed on: Server 1 (Frankfurt, Germany)
+
+### PostService
+
+-   Deployed on: Server 1 (Frankfurt, Germany)
+
+### PostRepository
+
+-   Deployed on: Database 2 (Singapore)
+
+This deployment view provides a comprehensive overview of the system's technical infrastructure, environments, and the mapping of building blocks onto specific elements within that infrastructure.
+
+  
 
 ## Infrastructure Level 1
 
-Describe (usually in a combination of diagrams, tables, and text):
+  
 
--   distribution of a system to multiple locations, environments,
-    computers, processors, .., as well as physical connections between
-    them
 
--   important justifications or motivations for this deployment
-    structure
+## Overview
 
--   quality and/or performance features of this infrastructure
+The Infrastructure Level 1 outlines the system's distribution across development, test, and production environments, emphasizing key justifications, quality/performance features, and the mapping of building blocks.
 
--   mapping of software artifacts to elements of this infrastructure
+### Development Environment
 
-For multiple environments or alternative deployments please copy and
-adapt this section of arc42 for all relevant environments.
+**Distribution:**
 
-***\<Overview Diagram>***
+-   Local machines for developers
+-   Development server
 
-Motivation  
-*\<explanation in text form>*
+**Justification/Motivation:**
 
-Quality and/or Performance Features  
-*\<explanation in text form>*
+-   Enables iterative development and debugging
+-   Independent work on specific components
 
-Mapping of Building Blocks to Infrastructure  
-*\<description of the mapping>*
+**Quality/Performance Features:**
+
+-   Rapid development cycles
+-   Isolated debugging environment
+
+**Mapping of Building Blocks:**
+
+-   UI Client, Search, Posts, User Management, Third-party Integration, Authentication, File Storage, PostController, PostService, PostRepository on development server
+
+### Test Environment
+
+**Distribution:**
+
+-   Load-balanced servers
+-   Geographically distributed databases
+
+**Justification/Motivation:**
+
+-   Mirrors production for comprehensive testing
+-   Ensures realistic quality assurance processes
+
+**Quality/Performance Features:**
+
+-   Real-world testing scenarios
+-   Comprehensive quality assurance
+
+**Mapping of Building Blocks:**
+
+-   All building blocks on load-balanced servers with geographically distributed databases
+
+### Production Environment
+
+**Distribution:**
+
+-   Geographically distributed servers
+-   Geographically distributed databases
+
+**Justification/Motivation:**
+
+-   Maximizes availability, scalability, and reliability
+-   Reduces latency for enhanced user experience
+
+**Quality/Performance Features:**
+
+-   High availability and reliability
+-   Optimized performance through geographical distribution
+
+**Mapping of Building Blocks:**
+
+-   All building blocks on geographically distributed servers with geographically distributed databases
+
+## Networking Infrastructure
+
+**Distribution:**
+
+-   Communication channels between building blocks
+-   Integration with third-party services in a Cloud Network (Example)
+
+**Justification/Motivation:**
+
+-   Ensures seamless data flow
+-   Maintains security through encryption and firewalls
+
+**Quality/Performance Features:**
+
+-   Efficient data flow
+-   Secure communication channels
+
+**Mapping of Building Blocks:**
+
+-   Communication channels between building blocks
+-   Integration with third-party services in a Cloud Network (Example)
+
+  
 
 ## Infrastructure Level 2
 
-Here you can include the internal structure of (some) infrastructure
-elements from level 1.
+  
 
-Please copy the structure from level 1 for each selected element.
 
-### *\<Infrastructure Element 1>*
+## Servers
 
-*\<diagram + explanation>*
+### Explanation
 
-### *\<Infrastructure Element 2>*
+The internal structure of servers involves multiple components:
 
-*\<diagram + explanation>*
+-  **Load Balancers:**
+    
+    -   Responsible for distributing incoming requests among application servers.
+    -   Ensures optimal performance and reliability.
+-  **Application Servers:**
+    
+    -   Host various building blocks, including UI Client, Search, and Posts.
+    -   Allows for efficient load distribution and independent scaling of components.
+-  **Database Servers:**
+    
+    -   Manage data storage and retrieval for User Management, Authentication, Posts, and File Storage.
+    -   Facilitate efficient communication between application layer and data access layer.
 
-…
+## Databases
 
-### *\<Infrastructure Element n>*
+### Explanation
 
-*\<diagram + explanation>*
+The internal structure of databases comprises multiple layers:
 
-<div style="page-break-after: always;"></div>
+-  **Data Access Layer:**
+    
+    -   Handled by PostRepository, facilitates communication with the application layer.
+    -   Ensures reliable storage and retrieval of post-related data.
+-  **Query Processing and Indexing:**
+    
+    -   Enhances search accuracy and response time in the Search component.
+    -   Optimizes the retrieval of relevant information from the database.
+-  **File Storage Layer:**
+    
+    -   Manages integration with the authentication system for secure access control.
+    -   Ensures efficient and secure storage and retrieval of files within the system.
+
+## Cloud Network
+
+### Explanation
+
+The internal structure of the Cloud Network involves communication channels between building blocks and secure connections to third-party services:
+
+-  **Communication Channels:**
+    
+    -   Enable seamless data flow between building blocks.
+    -   Facilitate efficient interactions and data exchange within the system.
+-  **Integration with Third-party Services:**
+    
+    -   Orchestrated through well-defined protocols and data exchange formats.
+    -   Ensures reliable and secure connections, enhancing collaboration with external services.
 
 # Cross-cutting Concepts
 
