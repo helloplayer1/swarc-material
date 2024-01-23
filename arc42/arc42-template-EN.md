@@ -438,275 +438,159 @@ arc42 Runtime Views provide a dynamic perspective on a software system's archite
 
 # Deployment View
 
-The deployment view provides insights into the technical infrastructure used to execute the system, encompassing various elements such as geographical locations, environments, computers, processors, channels, and network topologies. It also illustrates the mapping of software building blocks onto these infrastructure elements.
+The Deployment View illustrates the centralized technical infrastructure used to execute the system, focusing on Frankfurt as the single location. The system is deployed on two servers, one serving as the UI Client and the other hosting the remaining building blocks. A centralized database with a file storage bucket manages persistent data. This streamlined deployment structure simplifies management, enhances reliability, and reduces latency.
 
 ## Environments
 
 ### Development Environment
 
-The development environment serves as the initial stage for software development and testing. Developers interact with the system's components in a controlled environment, allowing for debugging and iterative development.
+-   **Distribution and Physical Connections:**
+    
+    -   Developers interact with local machines and a centralized development server in Frankfurt.
+-   **Justification/Motivation:**
+    
+    -   Facilitates collaborative development and testing.
+-   **Quality/Performance Features:**
+    
+    -   Streamlined development and debugging cycles.
 
 ### Test Environment
 
-The test environment replicates conditions similar to the production environment, enabling comprehensive testing of the system's functionalities. Quality assurance processes and system validation take place in this environment.
+-   **Distribution and Physical Connections:**
+    
+    -   Load-balanced servers in Frankfurt.
+    -   Centralized database with file storage.
+-   **Justification/Motivation:**
+    
+    -   Mirrors the production environment for realistic testing.
+    -   Simplifies quality assurance processes.
+-   **Quality/Performance Features:**
+    
+    -   Real-world testing scenarios.
+    -   Comprehensive quality assurance.
 
 ### Production Environment
 
-The production environment is the live, operational setting where end-users interact with the system. It hosts the system's building blocks and ensures stability, performance, and reliability for a seamless user experience.
-
-## Infrastructure Elements
-
-### Servers
-
-Servers host various building blocks of the system and are distributed across different geographical locations to enhance reliability and reduce latency. Load balancing mechanisms are employed to distribute incoming requests efficiently.
-
-#### Server 1 (Example)
-
--   Location: Frankfurt, Germany
--   Roles:
-    -   UI Client
-    -   Search
-    -   Posts
-
-#### Server 2 (Example)
-
--   Location: New York, USA
--   Roles:
-    -   User Management
-    -   Third-party Integration
-    -   Authentication
-
-### Databases
-
-Databases store and manage persistent data crucial for the system's functionality. They are strategically located to ensure data availability and minimize access latency.
-
-#### Database 1 (Example)
-
--   Type: SQL Database
--   Location: London, UK
--   Associated Building Blocks:
-    -   User Management
-    -   Authentication
-
-#### Database 2 (Example)
-
--   Type: NoSQL Database
--   Location: Singapore
--   Associated Building Blocks:
-    -   Posts
-    -   File Storage
-
-### Networking
-
-Network infrastructure facilitates communication between different building blocks and ensures seamless data flow. Security measures, such as firewalls and encryption, are implemented to protect data during transmission.
-
-#### Cloud Network (Example)
-
--   Cloud Provider: AWS
--   Components:
-    -   Communication channels between building blocks
-    -   Integration with third-party services
-
-## Mapping of Building Blocks
-
-### UI Client
-
--   Deployed on: Server 1 (Frankfurt, Germany)
-
-### Search
-
--   Deployed on: Server 1 (Frankfurt, Germany)
-
-### Posts
-
--   Deployed on: Server 1 (Frankfurt, Germany)
-
-### User Management
-
--   Deployed on: Server 2 (New York, USA)
-
-### Third-party Integration
-
--   Deployed on: Server 2 (New York, USA)
-
-### Authentication
-
--   Deployed on: Server 2 (New York, USA)
-
-### File Storage
-
--   Deployed on: Server 1 (Frankfurt, Germany)
-
-### PostController
-
--   Deployed on: Server 1 (Frankfurt, Germany)
-
-### PostService
-
--   Deployed on: Server 1 (Frankfurt, Germany)
-
-### PostRepository
-
--   Deployed on: Database 2 (Singapore)
-
-This deployment view provides a comprehensive overview of the system's technical infrastructure, environments, and the mapping of building blocks onto specific elements within that infrastructure.
-
-  
+-   **Distribution and Physical Connections:**
+    
+    -   Centralized servers in Frankfurt.
+    -   Centralized database with file storage.
+-   **Justification/Motivation:**
+    
+    -   Maximizes availability, scalability, and reliability.
+    -   Reduces latency for an enhanced user experience.
+-   **Quality/Performance Features:**
+    
+    -   High availability and reliability.
+    -   Optimized performance through centralized deployment.
 
 ## Infrastructure Level 1
 
-  
+### Overview
 
-
-## Overview
-
-The Infrastructure Level 1 outlines the system's distribution across development, test, and production environments, emphasizing key justifications, quality/performance features, and the mapping of building blocks.
+The Infrastructure Level 1 details the centralized deployment of the system in Frankfurt, emphasizing quality, performance, and the mapping of building blocks.
 
 ### Development Environment
 
-**Distribution:**
-
--   Local machines for developers
--   Development server
-
-**Justification/Motivation:**
-
--   Enables iterative development and debugging
--   Independent work on specific components
-
-**Quality/Performance Features:**
-
--   Rapid development cycles
--   Isolated debugging environment
-
-**Mapping of Building Blocks:**
-
--   UI Client, Search, Posts, User Management, Third-party Integration, Authentication, File Storage, PostController, PostService, PostRepository on development server
+-   **Distribution:**
+    
+    -   Local machines for developers.
+    -   Centralized development server in Frankfurt.
+-   **Justification/Motivation:**
+    
+    -   Enables collaborative development and testing.
+-   **Quality/Performance Features:**
+    
+    -   Streamlined development and debugging.
+-   **Mapping of Building Blocks:**
+    
+    -   UI Client, Search, Posts, User Management, Third-party Integration, Authentication, File Storage, PostController, PostService, PostRepository on the development server.
 
 ### Test Environment
 
-**Distribution:**
-
--   Load-balanced servers
--   Geographically distributed databases
-
-**Justification/Motivation:**
-
--   Mirrors production for comprehensive testing
--   Ensures realistic quality assurance processes
-
-**Quality/Performance Features:**
-
--   Real-world testing scenarios
--   Comprehensive quality assurance
-
-**Mapping of Building Blocks:**
-
--   All building blocks on load-balanced servers with geographically distributed databases
+-   **Distribution:**
+    
+    -   Load-balanced servers in Frankfurt.
+    -   Centralized database with file storage.
+-   **Justification/Motivation:**
+    
+    -   Mirrors the production environment for realistic testing.
+    -   Simplifies quality assurance processes.
+-   **Quality/Performance Features:**
+    
+    -   Real-world testing scenarios.
+    -   Comprehensive quality assurance.
+-   **Mapping of Building Blocks:**
+    
+    -   All building blocks on load-balanced servers with a centralized database.
 
 ### Production Environment
 
-**Distribution:**
-
--   Geographically distributed servers
--   Geographically distributed databases
-
-**Justification/Motivation:**
-
--   Maximizes availability, scalability, and reliability
--   Reduces latency for enhanced user experience
-
-**Quality/Performance Features:**
-
--   High availability and reliability
--   Optimized performance through geographical distribution
-
-**Mapping of Building Blocks:**
-
--   All building blocks on geographically distributed servers with geographically distributed databases
-
-## Networking Infrastructure
-
-**Distribution:**
-
--   Communication channels between building blocks
--   Integration with third-party services in a Cloud Network (Example)
-
-**Justification/Motivation:**
-
--   Ensures seamless data flow
--   Maintains security through encryption and firewalls
-
-**Quality/Performance Features:**
-
--   Efficient data flow
--   Secure communication channels
-
-**Mapping of Building Blocks:**
-
--   Communication channels between building blocks
--   Integration with third-party services in a Cloud Network (Example)
-
-  
+-   **Distribution:**
+    
+    -   Centralized servers in Frankfurt.
+    -   Centralized database with file storage.
+-   **Justification/Motivation:**
+    
+    -   Maximizes availability, scalability, and reliability.
+    -   Reduces latency for an enhanced user experience.
+-   **Quality/Performance Features:**
+    
+    -   High availability and reliability.
+    -   Optimized performance through centralized deployment.
+-   **Mapping of Building Blocks:**
+    
+    -   All building blocks on centralized servers with a centralized database.
 
 ## Infrastructure Level 2
 
-  
+### Servers
 
+**Explanation:** The internal structure of servers involves multiple components:
 
-## Servers
-
-### Explanation
-
-The internal structure of servers involves multiple components:
-
--  **Load Balancers:**
+-   **Load Balancers:**
     
     -   Responsible for distributing incoming requests among application servers.
     -   Ensures optimal performance and reliability.
--  **Application Servers:**
+-   **Application Servers:**
     
     -   Host various building blocks, including UI Client, Search, and Posts.
     -   Allows for efficient load distribution and independent scaling of components.
--  **Database Servers:**
+-   **Database Server:**
     
-    -   Manage data storage and retrieval for User Management, Authentication, Posts, and File Storage.
-    -   Facilitate efficient communication between application layer and data access layer.
+    -   Manages data storage and retrieval for User Management, Authentication, Posts, and File Storage.
+    -   Facilitates efficient communication between the application layer and the data access layer.
 
-## Databases
+### Databases
 
-### Explanation
+**Explanation:** The internal structure of databases comprises multiple layers:
 
-The internal structure of databases comprises multiple layers:
-
--  **Data Access Layer:**
+-   **Data Access Layer:**
     
-    -   Handled by PostRepository, facilitates communication with the application layer.
+    -   Handled by PostRepository, facilitating communication with the application layer.
     -   Ensures reliable storage and retrieval of post-related data.
--  **Query Processing and Indexing:**
+-   **Query Processing and Indexing:**
     
     -   Enhances search accuracy and response time in the Search component.
     -   Optimizes the retrieval of relevant information from the database.
--  **File Storage Layer:**
+-   **File Storage Layer:**
     
     -   Manages integration with the authentication system for secure access control.
     -   Ensures efficient and secure storage and retrieval of files within the system.
 
-## Cloud Network
+### Cloud Network
 
-### Explanation
+**Explanation:** The internal structure of the Cloud Network involves communication channels between building blocks and secure connections to third-party services:
 
-The internal structure of the Cloud Network involves communication channels between building blocks and secure connections to third-party services:
-
--  **Communication Channels:**
+-   **Communication Channels:**
     
     -   Enable seamless data flow between building blocks.
     -   Facilitate efficient interactions and data exchange within the system.
--  **Integration with Third-party Services:**
+-   **Integration with Third-party Services:**
     
     -   Orchestrated through well-defined protocols and data exchange formats.
     -   Ensures reliable and secure connections, enhancing collaboration with external services.
-
+    
 # Cross-cutting Concepts
 
 ## REST API
