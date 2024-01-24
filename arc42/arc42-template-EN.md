@@ -464,7 +464,7 @@ The Deployment View illustrates the centralized technical infrastructure used to
 
 ## Infrastructure Level 1
 
-![Infrastructure overview digram](../diagrams/infrastructure_level1_overview.svg)
+![Infrastructure overview digram](../diagrams/infrastructure_level1_overview.png)
 
 ### Overview
 
@@ -528,7 +528,7 @@ The Infrastructure Level 1 details the centralized deployment of the system in F
 
 **Diagram:**
 
-![Infrastructure overview digram](../diagrams/infrastructure_level2_servers.svg)
+![Infrastructure overview digram](../diagrams/infrastructure_level2_servers.png)
 
 **Explanation:** The internal structure of servers involves multiple components:
 
@@ -549,7 +549,7 @@ The Infrastructure Level 1 details the centralized deployment of the system in F
 
 **Diagram:**
 
-![Infrastructure overview digram](../diagrams/infrastrucutre_level2_databases.svg)
+![Infrastructure overview digram](../diagrams/infrastrucutre_level2_databases.png)
 
 **Explanation:** The internal structure of databases comprises multiple layers:
 
@@ -570,7 +570,7 @@ The Infrastructure Level 1 details the centralized deployment of the system in F
 
 **Diagram:**
 
-![Infrastructure overview digram](../diagrams/infrastrucutre_level2_cloud.svg)
+![Infrastructure overview digram](../diagrams/infrastrucutre_level2_cloud.png)
 
 **Explanation:** The internal structure of the Cloud Network involves communication channels between building blocks and secure connections to third-party services:
 
