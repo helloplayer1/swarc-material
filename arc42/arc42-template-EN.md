@@ -1,26 +1,3 @@
-# 
-
-**About arc42**
-
-arc42, the template for documentation of software and system
-architecture.
-
-Template Version 8.2 EN. (based upon AsciiDoc version), January 2023
-
-Created, maintained and © by Dr. Peter Hruschka, Dr. Gernot Starke and
-contributors. See <https://arc42.org>.
-
-<div class="note">
-
-This version of the template contains some help and explanations. It is
-used for familiarization with arc42 and the understanding of the
-concepts. For documentation of your own system you use better the
-*plain* version.
-
-</div>
-
-<div style="page-break-after: always;"></div>
-
 # Introduction and Goals
 
 The image sharing app allows users to upload, edit and share images with their friends, family and the wider community. 
@@ -37,9 +14,9 @@ Main features of the app are:
 
 | Priority | Quality     | Motivation                                                                                              |
 | -------- | ----------- | ------------------------------------------------------------------------------------------------------- |
-| 1        | Security    | Protect the private data and rights of our users to gather their trust.                                 |
-| 2        | Reliability | Allows for rapid growth of our app. The platform must be able to handle hundreds of thousands of users. |
-| 3        | Usability   | Make sure the user loves using our app.                                                                 |
+| 1        | Security    | Protect the private data and rights of our users to gather their trust                                  |
+| 2        | Reliability | Allows for rapid growth of our app. The platform must be able to handle hundreds of thousands of users  |
+| 3        | Usability   | Make sure the user loves using our app                                                                  |
 
 ## Stakeholders
 
@@ -47,7 +24,7 @@ Main features of the app are:
 | ----------------------- | -------------------------------------------------------------- |
 | Investor 1              | Return of Investment (ROI) for his share on the company        |
 | Investor 2              | Long term investment and growth                                |
-| Team Leader             | Hassle-free executino of the project                           |
+| Team Leader             | Hassle-free execution of the project                           |
 | Lead Marketing Engineer | Popularize and grow the app                                    |
 | Lead System Architect   | Build and maintain a scalable and secure hardware architecture |
 | Lead Software Architect | Implement the software itself                                  |
@@ -58,9 +35,9 @@ Main features of the app are:
 
 | Constraints                       | Backgrounds and/or motivation                                                                         |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Ease of use                       | We want our app to be as accessible as possible                                                       |
-| Advanced editing posibilities     | We want our users to stay within the app                                                              |
-| Crossplatform Development         | We dont have the resources to maintain two codebases                                                  |
+| Ease of use                       | The goal is to ensure the app is as accessible as possible                                            |
+| Advanced editing posibilities     | The objective is to keep users within the app                                                         |
+| Crossplatform Development         | Maintaining two codebases is not feasible due to resource constraints                                 |
 | Backend Implementation in Node.Js | While the Backend is implemented in JavaScript, the API will be designed based on the REST principles |
 | OS Independent development        | The development should work regardless of the desktop OS, as our team uses multiple different devices |
 
@@ -69,7 +46,8 @@ Main features of the app are:
 
 ![diagram](../diagrams/business_context.svg)
 
-Our system interacts with Pixlr to support advanced image editing use cases and also allows for sharing content on other social media platforms. To ensure compliance with legislation and also our own rules for allowed content, we use an external AI service to analize image uploads and classify them. Actors that interact with our system are the user and other users (community) as well as the government.
+Our system interacts with Pixlr to support advanced image editing use cases and also allows for sharing content on other social media platforms. To ensure compliance with legislation and also our own rules for allowed content, we use an external AI service to analize image uploads and classify them. 
+The individuals engaging with our system include the user, other community members, and government entities.
 
 ## Technical Context
 **Explanation of Technical Interfaces**
@@ -751,38 +729,15 @@ Consequences:
 
 # Glossary
 
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-The most important domain and technical terms that your stakeholders use
-when discussing the system.
-
-You can also see the glossary as source for translations if you work in
-multi-language teams.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-You should clearly define your terms, so that all stakeholders
-
--   have an identical understanding of these terms
-
--   do not use synonyms and homonyms
-
-A table with columns \<Term> and \<Definition>.
-
-Potentially more columns in case you need translations.
-
-See [Glossary](https://docs.arc42.org/section-12/) in the arc42
-documentation.
-
-| Term        | Definition        |
-| ----------- | ----------------- |
-| *\<Term-1>* | *\<definition-1>* |
-| *\<Term-2>* | *\<definition-2>* |
+| Term                        | Definition                                                               |
+| --------------------------- | ------------------------------------------------------------------------ |
+| Image Sharing App           |A platform for users to upload, edit, and share images                    |
+| Pixlr Integration           | Seamlessly incorporating Pixlr's image editing service into the app      |
+| RESTful Architecture        | A scalable design using standard HTTP methods for networked applications |
+| User-generated Content      | Content created by app users, including images and posts                 |
+| Node.js                     | JavaScript runtime for scalable server-side applications                 |
+| End-to-End Encryption (e2e) | Ensures secure transmission and storage of user data                     |
+| Flutter Framework           | Cross-platform toolkit for unified codebase development                  |
+| UI Client                   | Front-end interface handling user interaction                            |
+| Security and Privacy        | Measures to protect user data and ensure privacy compliance              |
+| Common Logging Format       | Standardized log format for systematic analysis and error detection      | 
