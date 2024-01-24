@@ -486,6 +486,8 @@ The Deployment View illustrates the centralized technical infrastructure used to
 
 ## Infrastructure Level 1
 
+![Infrastructure overview digram](../diagrams/infrastructure_level1_overview.svg)
+
 ### Overview
 
 The Infrastructure Level 1 details the centralized deployment of the system in Frankfurt, emphasizing quality, performance, and the mapping of building blocks.
@@ -546,6 +548,10 @@ The Infrastructure Level 1 details the centralized deployment of the system in F
 
 ### Servers
 
+**Diagram:**
+
+![Infrastructure overview digram](../diagrams/infrastructure_level2_servers.svg)
+
 **Explanation:** The internal structure of servers involves multiple components:
 
 -   **Load Balancers:**
@@ -563,6 +569,10 @@ The Infrastructure Level 1 details the centralized deployment of the system in F
 
 ### Databases
 
+**Diagram:**
+
+![Infrastructure overview digram](../diagrams/infrastrucutre_level2_databases.svg)
+
 **Explanation:** The internal structure of databases comprises multiple layers:
 
 -   **Data Access Layer:**
@@ -579,6 +589,10 @@ The Infrastructure Level 1 details the centralized deployment of the system in F
     -   Ensures efficient and secure storage and retrieval of files within the system.
 
 ### Cloud Network
+
+**Diagram:**
+
+![Infrastructure overview digram](../diagrams/infrastrucutre_level2_cloud.svg)
 
 **Explanation:** The internal structure of the Cloud Network involves communication channels between building blocks and secure connections to third-party services:
 
